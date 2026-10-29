@@ -12,17 +12,13 @@ alert correlation, compliance mapping, API, report.
 - [x] Step 1: Setup (venv, structure, requirements, .gitignore)
 - [x] Step 2: Dataset generator (src/data_generator.py)
 
-
 Step 2: synthetic dataset generator:
 
      Dataset design -> generator (src/data_generator.py)
 
-
-## Next
-Step 3: preprocess.py (cleaning + features) -> train.py
-
-    - Step 3a result: is_external_ip separates classes perfectly (0% vs 100%);
-    is_night 1.8% vs 34.9%. Plan: ablation test without is_external_ip in Step 4.
+- [x] Step 3: preprocess.py done (basic + backward window features).
+  fails_5min: normal max 4 vs attack max 78. Early rows of an attack look
+  like typos -> expect imperfect recall.
 
 ## Dataset facts
 - File: data/raw/security_logs.csv, 10,112 rows, 12 columns, seed=42
@@ -37,6 +33,20 @@ Step 3: preprocess.py (cleaning + features) -> train.py
   recall); synthetic data is cleaner than real logs.
 - Correlation tests: INC-001 vs INC-005 (similar attacks, must stay
   separate), INC-004/008 (multi-stage, must merge)
+
+Step 3: preprocess.py (cleaning + features) -> train.py
+
+    - Step 3a result: is_external_ip separates classes perfectly (0% vs 100%);
+    is_night 1.8% vs 34.9%. Plan: ablation test without is_external_ip in Step 4.
+
+- [x] Step 4a/4b: Random Forest trained, time split (train before Oct 24,
+  test after). Train 7256 rows (264 attacks), test 2856 rows (129 attacks).
+  Model A (all features): 100% everywhere -> leakage via is_external_ip
+  and severity_num. Model B (behaviour only): precision 0.992, recall
+  0.984, FP=1, FN=2 (both early brute-force rows). Saved models/rf_model.joblib
+  (model B + its feature list).
+  Limits: 3 test incidents, no port scan in test, synthetic data optimistic.
+- Next: Isolation Forest comparison (4c), then Task 2 correlation.
 
 ## Concepts learned
 - Seed = reproducibility; leakage; accuracy misleading on imbalance
