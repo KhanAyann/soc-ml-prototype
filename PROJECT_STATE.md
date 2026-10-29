@@ -39,6 +39,8 @@ Step 3: preprocess.py (cleaning + features) -> train.py
     - Step 3a result: is_external_ip separates classes perfectly (0% vs 100%);
     is_night 1.8% vs 34.9%. Plan: ablation test without is_external_ip in Step 4.
 
+Step 4: Train the model
+
 - [x] Step 4a/4b: Random Forest trained, time split (train before Oct 24,
   test after). Train 7256 rows (264 attacks), test 2856 rows (129 attacks).
   Model A (all features): 100% everywhere -> leakage via is_external_ip
@@ -47,6 +49,11 @@ Step 3: preprocess.py (cleaning + features) -> train.py
   (model B + its feature list).
   Limits: 3 test incidents, no port scan in test, synthetic data optimistic.
 - Next: Isolation Forest comparison (4c), then Task 2 correlation.
+
+- [x] Step 4c: Isolation Forest (behaviour only, contamination=0.04):
+  precision 0.785, recall 0.907, F1 0.842, FP=32, FN=12. Worse than RF
+  (F1 0.988) but needs no labels. Decision: RF is primary detector.
+- Task 1 DONE. Next: Task 2 correlation (src/correlate.py).
 
 ## Concepts learned
 - Seed = reproducibility; leakage; accuracy misleading on imbalance

@@ -75,5 +75,24 @@ if __name__ == "__main__":
     model = run("B) Behaviour only (no is_external_ip, no severity_num)", BEHAVIOUR)
     FEATURES = BEHAVIOUR          # the honest model is the one we save    
 
+
+# Step 4c: Isolation Forest (unsupervised comparison)
+    
+    from sklearn.ensemble import IsolationForest
+    iso = IsolationForest(n_estimators=200, contamination=0.04,
+                          random_state=42, n_jobs=-1)
+    iso.fit(train[BEHAVIOUR])                       # labels are NOT used
+    ip = (iso.predict(test[BEHAVIOUR]) == -1).astype(int)   # -1 = anomaly
+    print("\n===== C) Isolation Forest (unsupervised, behaviour only) =====")
+    print(classification_report(test["is_suspicious"], ip, digits=3))
+    print("Confusion matrix [[TN FP] [FN TP]]:")
+    print(confusion_matrix(test["is_suspicious"], ip))    
+
+
+
     os.makedirs("models", exist_ok=True)
     joblib.dump({"model": model, "features": FEATURES}, "models/rf_model.joblib")
+
+
+
+
