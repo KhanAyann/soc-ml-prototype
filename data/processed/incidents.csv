@@ -1,0 +1,12 @@
+incident,source_ip,asset,start,end,alerts,max_severity,reason
+CORR-001,10.0.3.40,vpn-gateway,2026-10-24 09:28:11.000000,2026-10-24 09:28:11.000000,1,low,1 alerts from 10.0.3.40 on vpn-gateway over 0.0 min; events: {'login_failed': 1}
+CORR-002,103.75.201.9,db-server-01,2026-10-22 03:14:55.882805,2026-10-22 03:42:00.877659,4,high,4 alerts from 103.75.201.9 on db-server-01 over 27.1 min; events: {'data_transfer': 4}
+CORR-003,178.62.55.31,mail-server-01,2026-10-24 22:40:10.671875,2026-10-24 22:43:11.507870,77,high,"77 alerts from 178.62.55.31 on mail-server-01 over 3.0 min; events: {'login_failed': 76, 'login_success': 1}"
+CORR-004,185.141.27.6,mail-server-01,2026-10-21 02:43:51.262712,2026-10-21 02:57:17.535521,4,high,4 alerts from 185.141.27.6 on mail-server-01 over 13.4 min; events: {'data_transfer': 4}
+CORR-005,185.220.101.4,vpn-gateway,2026-10-20 14:10:02.036075,2026-10-20 14:11:42.160870,46,high,"46 alerts from 185.220.101.4 on vpn-gateway over 1.7 min; events: {'login_failed': 45, 'login_success': 1}"
+CORR-006,194.26.29.15,web-server-01,2026-10-25 03:10:01.473077,2026-10-25 03:38:27.110024,46,high,"46 alerts from 194.26.29.15 on web-server-01 over 28.4 min; events: {'login_failed': 40, 'data_transfer': 4, 'login_success': 1, 'privilege_escalation': 1}"
+CORR-007,198.51.100.23,db-server-01,2026-10-19 16:45:00.437974,2026-10-19 16:45:12.410339,38,medium,38 alerts from 198.51.100.23 on db-server-01 over 0.2 min; events: {'port_probe': 38}
+CORR-008,203.0.113.50,file-server-01,2026-10-24 01:31:13.404491,2026-10-24 01:50:43.479761,4,high,4 alerts from 203.0.113.50 on file-server-01 over 19.5 min; events: {'data_transfer': 4}
+CORR-009,45.155.205.12,web-server-01,2026-10-21 09:30:00.321695,2026-10-21 09:30:10.661002,34,medium,34 alerts from 45.155.205.12 on web-server-01 over 0.2 min; events: {'port_probe': 34}
+CORR-010,62.210.37.9,app-server-01,2026-10-19 23:15:02.720891,2026-10-19 23:17:05.821146,59,high,"59 alerts from 62.210.37.9 on app-server-01 over 2.1 min; events: {'login_failed': 58, 'login_success': 1}"
+CORR-011,91.240.118.77,app-server-01,2026-10-23 02:20:01.605752,2026-10-23 03:15:36.007107,79,high,"79 alerts from 91.240.118.77 on app-server-01 over 55.6 min; events: {'login_failed': 71, 'data_transfer': 6, 'login_success': 1, 'privilege_escalation': 1}"

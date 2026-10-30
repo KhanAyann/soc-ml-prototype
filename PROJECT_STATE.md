@@ -55,6 +55,12 @@ Step 4: Train the model
   (F1 0.988) but needs no labels. Decision: RF is primary detector.
 - Task 1 DONE. Next: Task 2 correlation (src/correlate.py).
 
+- [x] Step 5: correlate.py. GAP=30 min, group by source_ip+asset.
+  11 incidents = 10 real + 1 FP (10.0.3.40). Graded vs scenario_id:
+  no over-merge, no under-merge. Task 2 DONE.
+- Next: Step 6 compliance mapping.
+
+
 ## Concepts learned
 - Seed = reproducibility; leakage; accuracy misleading on imbalance
   (use precision/recall/F1); over- vs under-merging
