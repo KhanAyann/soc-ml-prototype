@@ -76,6 +76,7 @@ Step 4: Train the model
   evidence, controls, remediation, metrics, limitations). Optional /report
   endpoint in the API. Task 5 report DONE.
 
+- [x] Step 9: README. ALL TASKS DONE.
 
 ## Concepts learned
 - Seed = reproducibility; leakage; accuracy misleading on imbalance
