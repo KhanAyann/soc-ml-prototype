@@ -66,6 +66,13 @@ Step 4: Train the model
   Limitation: control mapping is my own illustrative judgment.
 
 
+- [x] Step 7: connectors.py (CSV logs + AbuseIPDB, key optional) and
+  app/main.py (FastAPI: /health, /analyze, /analyze/sample; Pydantic
+  validation -> 422, 404/503/500 handling). Task 4 DONE.
+  Limitation: window features only see the submitted batch.
+- Next: Step 8 report.py, then README.
+
+
 ## Concepts learned
 - Seed = reproducibility; leakage; accuracy misleading on imbalance
   (use precision/recall/F1); over- vs under-merging
