@@ -57,6 +57,11 @@ The all-features model scored 100% because `is_external_ip` and
 behaviour-only model. Correlation: 11 incidents (10 real + 1 false
 positive), no over-merging or under-merging against ground truth.
 
+## Screenshots
+![Security report](docs/report_screenshot.jpeg)
+
+
+
 ## Known limitations
 - Synthetic data is cleaner than real logs; metrics are optimistic.
 - Test period has only 3 incidents and no port scans; exfiltration has very few rows.
