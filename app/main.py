@@ -5,11 +5,16 @@ from ipaddress import IPv4Address
 from pathlib import Path
 from typing import Literal
 
+
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.append(str(ROOT / "src"))
 
 import joblib
 import pandas as pd
+
+from fastapi.responses import HTMLResponse
+from report import build_report
+
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, Field, field_validator
 
@@ -90,3 +95,22 @@ def analyze_sample(enrich: bool = False):
     except FileNotFoundError as e:
         raise HTTPException(404, str(e))
     return analyze(df, enrich)
+
+
+
+@app.get("/report", response_class=HTMLResponse)
+def report():
+    try:
+        # Rebuild findings from the sample logs, then render the report
+        import json
+        result = analyze_sample()
+        (ROOT / "data/processed").mkdir(parents=True, exist_ok=True)
+        with open(ROOT / "data/processed/findings.json", "w") as f:
+            json.dump(result["incidents"], f, indent=2)
+        path = build_report(str(ROOT / "data/processed/findings.json"),
+                            str(ROOT / "reports/security_report.html"))
+        return Path(path).read_text(encoding="utf-8")
+    except HTTPException:
+        raise
+    except Exception:
+        raise HTTPException(500, "Report generation failed.")

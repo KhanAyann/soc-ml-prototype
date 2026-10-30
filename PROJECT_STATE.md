@@ -72,6 +72,10 @@ Step 4: Train the model
   Limitation: window features only see the submitted batch.
 - Next: Step 8 report.py, then README.
 
+- [x] Step 8: report.py -> reports/security_report.html (sorted by risk,
+  evidence, controls, remediation, metrics, limitations). Optional /report
+  endpoint in the API. Task 5 report DONE.
+
 
 ## Concepts learned
 - Seed = reproducibility; leakage; accuracy misleading on imbalance
