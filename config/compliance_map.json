@@ -1,0 +1,37 @@
+{
+  "brute_force": {
+    "title": "Brute-force authentication attack",
+    "risk": "high",
+    "nist_csf": "PR.AA-03 (Users and services are authenticated)",
+    "iso_27001": "A.8.5 Secure authentication",
+    "remediation": "Enforce MFA, account lockout and rate limiting; block the source IP; reset credentials of targeted accounts, especially if a login succeeded."
+  },
+  "port_scan": {
+    "title": "Network reconnaissance (port scan)",
+    "risk": "medium",
+    "nist_csf": "DE.CM-01 (Networks are monitored to find adverse events)",
+    "iso_27001": "A.8.16 Monitoring activities; A.8.20 Networks security",
+    "remediation": "Block the scanning IP at the firewall, close unused ports, and add IDS rules for scan detection."
+  },
+  "data_exfiltration": {
+    "title": "Suspected data exfiltration",
+    "risk": "critical",
+    "nist_csf": "PR.DS-01 (Confidentiality of data-at-rest is protected); DE.AE-02 (Adverse events are analyzed)",
+    "iso_27001": "A.8.12 Data leakage prevention",
+    "remediation": "Cut the outbound connection, identify what data left, restrict egress traffic, and start the breach-notification assessment."
+  },
+  "multi_stage_intrusion": {
+    "title": "Multi-stage intrusion (access, escalation, exfiltration)",
+    "risk": "critical",
+    "nist_csf": "PR.AA-05 (Access permissions follow least privilege); RS.AN-03 (Incident analysis)",
+    "iso_27001": "A.8.2 Privileged access rights; A.5.26 Response to information security incidents",
+    "remediation": "Isolate the host, revoke and rotate privileged credentials, run forensics on the full attack chain, and invoke the incident response plan."
+  },
+  "low_confidence_anomaly": {
+    "title": "Low-confidence anomaly (possible false positive)",
+    "risk": "low",
+    "nist_csf": "DE.AE-02 (Adverse events are analyzed)",
+    "iso_27001": "A.5.25 Assessment of information security events",
+    "remediation": "Analyst review. If benign, record it as a false positive and use it to tune the model."
+  }
+}

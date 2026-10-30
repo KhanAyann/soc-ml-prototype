@@ -60,6 +60,11 @@ Step 4: Train the model
   no over-merge, no under-merge. Task 2 DONE.
 - Next: Step 6 compliance mapping.
 
+- [x] Step 6: compliance.py + config/compliance_map.json. Rule-based finding
+  types (brute_force 3, port_scan 2, data_exfiltration 3,
+  multi_stage_intrusion 2, low_confidence_anomaly 1). Task 3 DONE.
+  Limitation: control mapping is my own illustrative judgment.
+
 
 ## Concepts learned
 - Seed = reproducibility; leakage; accuracy misleading on imbalance
